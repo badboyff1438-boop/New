@@ -39,24 +39,26 @@ body{
   cursor:pointer;
 }
 
-/* Leaf */
+/* 🌸 BABY PINK LEAF */
 .leaf{
-  background:white;
+  background:#ffd6e8; /* baby pink */
   padding:28px;
   border-radius:55% 55% 45% 45%;
-  box-shadow:0 12px 30px rgba(0,0,0,.2);
+  box-shadow:0 12px 30px rgba(255,105,180,.35);
   animation:leafFloat 3s ease-in-out infinite;
+  color:#5a2a3c;
 }
 @keyframes leafFloat{
   0%,100%{transform:translateY(0)}
   50%{transform:translateY(-12px)}
 }
 
-/* Blossoms */
+/* Cherry Blossoms */
 .blossom{
   position:absolute;
   font-size:18px;
   animation:fall 9s linear infinite;
+  z-index:1;
 }
 @keyframes fall{
   from{transform:translateY(-10vh);opacity:0}
@@ -64,31 +66,32 @@ body{
   to{transform:translateY(110vh);opacity:0}
 }
 
-/* Background flying birds */
-.fly-bird{
+/* Background Birds */
+.bg-bird{
   position:absolute;
   font-size:26px;
-  animation:fly 12s linear infinite;
+  animation:flyBg 14s linear infinite;
+  z-index:1;
 }
-@keyframes fly{
-  from{transform:translateX(-15vw) translateY(15vh)}
-  to{transform:translateX(115vw) translateY(-20vh)}
+@keyframes flyBg{
+  from{transform:translateX(-20vw) translateY(20vh)}
+  to{transform:translateX(120vw) translateY(-30vh)}
 }
 
-/* LETTER BIRD SCENE */
+/* Letter Bird Scene */
 .bird-scene{
   position:relative;
-  height:280px;
+  height:260px;
 }
 .letter-bird{
-  font-size:70px;
   position:absolute;
-  left:-80px;
-  top:80px;
+  font-size:70px;
+  left:-100px;
+  top:70px;
   animation:birdDeliver 3s ease forwards;
 }
 @keyframes birdDeliver{
-  to{left:50%; transform:translateX(-50%)}
+  to{left:50%;transform:translateX(-50%)}
 }
 .wing{
   animation:flap .6s infinite alternate;
@@ -97,8 +100,9 @@ body{
   from{transform:rotate(0deg)}
   to{transform:rotate(10deg)}
 }
+
 .msg{
-  background:white;
+  background:#fff0f7;
   display:inline-block;
   padding:8px 14px;
   border-radius:14px;
@@ -110,7 +114,7 @@ body{
   margin:12px 0;
 }
 
-/* End */
+/* Final Text */
 .end{
   font-size:22px;
   font-weight:bold;
@@ -190,7 +194,7 @@ function go(n){
   document.getElementById('s'+n).classList.add('active');
 }
 
-/* Blossoms */
+/* Cherry Blossoms */
 setInterval(()=>{
   let b=document.createElement("div");
   b.className="blossom";
@@ -200,16 +204,16 @@ setInterval(()=>{
   setTimeout(()=>b.remove(),9000);
 },350);
 
-/* Background birds */
+/* Background Birds */
 setInterval(()=>{
-  let fb=document.createElement("div");
-  fb.className="fly-bird";
-  fb.innerHTML="🕊️🕊️";
-  fb.style.top=(20+Math.random()*40)+"vh";
-  document.body.appendChild(fb);
-  setTimeout(()=>fb.remove(),12000);
-},4500);
+  let bb=document.createElement("div");
+  bb.className="bg-bird";
+  bb.innerHTML="🕊️🕊️";
+  bb.style.top=(20+Math.random()*40)+"vh";
+  document.body.appendChild(bb);
+  setTimeout(()=>bb.remove(),14000);
+},5000);
 </script>
 
 </body>
-</html>
+  </html>
