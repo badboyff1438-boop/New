@@ -17,15 +17,17 @@ body{
   overflow:hidden;
 }
 
+/* Screens */
 .screen{
   display:none;
   text-align:center;
-  padding:25px;
+  padding:24px;
   max-width:420px;
   z-index:2;
 }
 .active{display:block;}
 
+/* Button */
 .btn{
   margin-top:18px;
   padding:12px 26px;
@@ -37,7 +39,7 @@ body{
   cursor:pointer;
 }
 
-/* 🌿 LEAF */
+/* Leaf */
 .leaf{
   background:white;
   padding:28px;
@@ -50,7 +52,7 @@ body{
   50%{transform:translateY(-12px)}
 }
 
-/* 🌸 BLOSSOMS */
+/* Blossoms */
 .blossom{
   position:absolute;
   font-size:18px;
@@ -62,7 +64,7 @@ body{
   to{transform:translateY(110vh);opacity:0}
 }
 
-/* 🕊️ LOVE BIRDS */
+/* Birds */
 .fly-bird{
   position:absolute;
   font-size:26px;
@@ -73,59 +75,97 @@ body{
   to{transform:translateX(115vw) translateY(-20vh)}
 }
 
-/* 🚪 DOOR + BOY */
+/* Door + Scene */
 .scene{
   position:relative;
-  height:300px;
+  height:340px;
 }
-
 .door{
   font-size:90px;
   animation:openDoor 1.5s ease forwards;
 }
 @keyframes openDoor{
-  from{transform:rotateY(0deg)}
   to{transform:rotateY(-35deg)}
 }
 
+/* Realistic Boy */
 .boy{
-  font-size:120px;
   position:absolute;
   left:50%;
-  top:80px;
-  transform:translateX(-50%) translateY(40px);
+  top:90px;
+  transform:translateX(-50%);
   opacity:0;
   animation:boyWalk 2.5s ease forwards;
   animation-delay:1.5s;
 }
 @keyframes boyWalk{
-  0%{opacity:0;transform:translateX(-50%) translateY(60px)}
-  100%{opacity:1;transform:translateX(-50%) translateY(0)}
+  from{opacity:0; transform:translateX(-50%) translateY(40px)}
+  to{opacity:1; transform:translateX(-50%) translateY(0)}
 }
-
-.shy{
-  animation:shyMove 2s infinite ease-in-out;
+.head{
+  width:60px;height:60px;
+  background:#ffddb8;
+  border-radius:50%;
+  margin:auto;
+  position:relative;
 }
-@keyframes shyMove{
-  0%,100%{transform:translateX(-50%) rotate(0deg)}
-  50%{transform:translateX(-50%) rotate(2deg)}
+.hair{
+  position:absolute;
+  top:-6px;left:5px;
+  width:50px;height:26px;
+  background:#222;
+  border-radius:30px 30px 10px 10px;
+}
+.eye{
+  width:6px;height:6px;
+  background:#000;
+  border-radius:50%;
+  position:absolute;
+  top:30px;
+}
+.eye.left{left:18px;}
+.eye.right{right:18px;}
+.body{
+  width:72px;height:82px;
+  background:#4f7cff;
+  border-radius:14px;
+  margin:6px auto 0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:white;
+  font-size:12px;
+}
+.legs{
+  display:flex;
+  justify-content:center;
+  gap:10px;
+}
+.leg{
+  width:16px;height:50px;
+  background:#333;
+  border-radius:8px;
+}
+.shoes{
+  display:flex;
+  justify-content:center;
+  gap:10px;
+}
+.shoe{
+  width:20px;height:10px;
+  background:#000;
+  border-radius:4px;
 }
 
 .head-msg{
   margin-top:10px;
-  background:#fff;
+  background:white;
   padding:8px 14px;
   border-radius:14px;
-  display:inline-block;
   font-size:14px;
 }
+.letter{font-size:40px;margin-top:12px;}
 
-.letter{
-  font-size:42px;
-  margin-top:15px;
-}
-
-/* END */
 .end{
   font-size:22px;
   font-weight:bold;
@@ -155,7 +195,7 @@ body{
 <div id="s2" class="screen">
   <div class="leaf">🕊️💗<br>
     New year 🍂, same you — but my love for you grows deeper with every sunrise 😌✨  
-    If loving you is my resolution 😚, I’m never quitting 😜
+    If loving you is my resolution 😚, then I’m never quitting 😜
   </div>
   <button class="btn" onclick="go(3)">❤️ Next</button>
 </div>
@@ -172,20 +212,29 @@ body{
 <!-- LEAF 4 -->
 <div id="s4" class="screen">
   <div class="leaf">🕊️💗<br>
-    Your eyes 👀 are too dangerous — they make me fall every time 😘  
+    Your eyes 👀 are way too dangerous — they make me fall every single time 😘  
     <br><b>Happy New Year, my Kawaii 💕🎐</b>
   </div>
   <button class="btn" onclick="go(5)">💌 Someone is here</button>
 </div>
 
-<!-- FULL BODY BOY -->
+<!-- BOY -->
 <div id="s5" class="screen">
   <div class="scene">
     <div class="door">🚪</div>
-    <div class="boy shy">😳👦<br>🧥<br>👖</div>
-    <div class="head-msg">Take this letter, Kawaii 💌</div>
-    <div class="letter">✉️</div>
-    <button class="btn" onclick="go(6)">Take the letter 💌</button>
+    <div class="boy">
+      <div class="head">
+        <div class="hair"></div>
+        <div class="eye left"></div>
+        <div class="eye right"></div>
+      </div>
+      <div class="body">Abhi</div>
+      <div class="legs"><div class="leg"></div><div class="leg"></div></div>
+      <div class="shoes"><div class="shoe"></div><div class="shoe"></div></div>
+      <div class="head-msg">Take this letter, Kawaii 💌</div>
+      <div class="letter">✉️</div>
+      <button class="btn" onclick="go(6)">Take the letter 💌</button>
+    </div>
   </div>
 </div>
 
@@ -202,7 +251,7 @@ function go(n){
   document.getElementById('s'+n).classList.add('active');
 }
 
-/* BLOSSOMS */
+/* Blossoms */
 setInterval(()=>{
   let b=document.createElement("div");
   b.className="blossom";
@@ -212,7 +261,7 @@ setInterval(()=>{
   setTimeout(()=>b.remove(),9000);
 },350);
 
-/* LOVE BIRDS */
+/* Birds */
 setInterval(()=>{
   let fb=document.createElement("div");
   fb.className="fly-bird";
